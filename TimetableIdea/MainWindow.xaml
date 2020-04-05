@@ -13,6 +13,15 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Student Timetable" Height="1000" Width="2000" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <DataTemplate x:Key="DataTemplateTxtBlkTimeTable">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=SubjectName}" FontSize="18" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
     <TabControl TabStripPlacement="Top" Background="#FF478F4A">
 
         <TabItem Name="TimetableTab" Header="Timetable" Width="100">
@@ -45,22 +54,22 @@
                 </Grid.RowDefinitions>
 
                 <Image x:Name="img_SligoIT" HorizontalAlignment="Left" Height="206" Margin="-306,10,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="290" RenderTransformOrigin="-0.65,0.45"/>
-                <Label Content="Monday" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" FontWeight="Bold" FontSize="24"/>
-                <Label Content="Tuesday" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Wednesday" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Thursday" Grid.Column="4" HorizontalAlignment="Left" Margin="20,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Friday" Grid.Column="5" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Saturday" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Sunday" Grid.Column="7" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="09:00 - 10:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="1" FontSize="24" FontStyle="Italic"/>
-                <Label Content="10:00 - 11:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="2" FontSize="24" FontStyle="Italic"/>
-                <Label Content="11:00 - 12:00" HorizontalAlignment="Left" Margin="10,9,0,0" Width="174" Grid.Row="3" FontSize="24"/>
-                <Label Content="12:00 - 13:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="173" Grid.Row="4" FontSize="24" FontStyle="Italic"/>
-                <Label Content="13:00 - 14:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="174" Grid.Row="5" FontSize="24" FontStyle="Italic"/>
-                <Label Content="14:00 - 15:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="6" FontSize="24" FontStyle="Italic"/>
-                <Label Content="15:00 - 16:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="7" FontSize="24" FontStyle="Italic"/>
-                <Label Content="16:00 - 17:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="173" Grid.Row="8" FontSize="24" FontStyle="Italic"/>
-                <Label Content="17:00 - 18:00" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Height="61" Width="173" FontSize="24" FontStyle="Italic"/>
+                <Label Content="Monday" Grid.Column="1" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Center" Height="70" Width="140" FontWeight="Bold" FontSize="24"/>
+                <Label Content="Tuesday" Grid.Column="2" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="Wednesday" Grid.Column="3" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="Thursday" Grid.Column="4" HorizontalAlignment="Center" Margin="20,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="Friday" Grid.Column="5" HorizontalAlignment="Center" Margin="10,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="Saturday" Grid.Column="6" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="Sunday" Grid.Column="7" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
+                <Label Content="09:00 - 10:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="1" FontSize="24" FontStyle="Italic"/>
+                <Label Content="10:00 - 11:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="2" FontSize="24" FontStyle="Italic"/>
+                <Label Content="11:00 - 12:00" HorizontalAlignment="Center" Margin="10,9,0,0" Width="174" Grid.Row="3" FontSize="24" FontStyle="Italic"/>
+                <Label Content="12:00 - 13:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="173" Grid.Row="4" FontSize="24" FontStyle="Italic"/>
+                <Label Content="13:00 - 14:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="174" Grid.Row="5" FontSize="24" FontStyle="Italic"/>
+                <Label Content="14:00 - 15:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="6" FontSize="24" FontStyle="Italic"/>
+                <Label Content="15:00 - 16:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="7" FontSize="24" FontStyle="Italic"/>
+                <Label Content="16:00 - 17:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="173" Grid.Row="8" FontSize="24" FontStyle="Italic"/>
+                <Label Content="17:00 - 18:00" HorizontalAlignment="Center" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Height="61" Width="173" FontSize="24" FontStyle="Italic"/>
                 <Label Content=" Student Timetable" HorizontalAlignment="Left" Margin="-306,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="34" Width="220" FontSize="24" FontWeight="Bold"/>
 
                 <Rectangle 
@@ -392,14 +401,14 @@
                Grid.Row="9"  
                Stroke="Black"
                Fill="Transparent" />
-                <TextBlock x:Name="txtb1_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <TextBlock x:Name="txtb1_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <TextBlock x:Name="txtb1_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <TextBlock x:Name="txtb1_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="4,5,0,0"/>
                 <TextBlock x:Name="txtb1_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb1_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb1_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb1_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb1_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                
+
                 <TextBlock x:Name="txtb2_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb2_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
                 <TextBlock x:Name="txtb2_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>

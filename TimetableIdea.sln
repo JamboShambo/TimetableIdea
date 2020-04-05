@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableIdea", "TimetableIdea\TimetableIdea.csproj", "{0FE0D5F5-84F4-4486-B6F1-8C8432A60E0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagement", "DataManagement\DataManagement.csproj", "{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0FE0D5F5-84F4-4486-B6F1-8C8432A60E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE0D5F5-84F4-4486-B6F1-8C8432A60E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE0D5F5-84F4-4486-B6F1-8C8432A60E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
