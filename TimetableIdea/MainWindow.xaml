@@ -11,7 +11,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Student Timetable" Height="1000" Width="2000" Loaded="Window_Loaded">
+        Title="Student Timetable" Height="1000" Width="1600" Loaded="Window_Loaded">
 
     <Window.Resources>
         <DataTemplate x:Key="DataTemplateTxtBlkTimeTable">
@@ -29,8 +29,6 @@
             <Grid Margin="308,11,0,11" Background="#FF005963">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.25*"/>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
@@ -58,8 +56,6 @@
                 <Label Content="Wednesday" Grid.Column="3" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
                 <Label Content="Thursday" Grid.Column="4" HorizontalAlignment="Center" Margin="20,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
                 <Label Content="Friday" Grid.Column="5" HorizontalAlignment="Center" Margin="10,9,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Saturday" Grid.Column="6" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
-                <Label Content="Sunday" Grid.Column="7" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="140" RenderTransformOrigin="2.136,0.629" FontSize="24" FontWeight="Bold"/>
                 <Label Content="09:00 - 10:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="1" FontSize="24" FontStyle="Italic"/>
                 <Label Content="10:00 - 11:00" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="174" Grid.Row="2" FontSize="24" FontStyle="Italic"/>
                 <Label Content="11:00 - 12:00" HorizontalAlignment="Center" Margin="10,9,0,0" Width="174" Grid.Row="3" FontSize="24" FontStyle="Italic"/>
@@ -95,14 +91,7 @@
                Grid.Row="0"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="0"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="0"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="1"  
@@ -128,14 +117,7 @@
                Grid.Row="1"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="1"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="1"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="2"  
@@ -161,14 +143,7 @@
                Grid.Row="2"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="2"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="2"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="3"  
@@ -194,14 +169,7 @@
                Grid.Row="3"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="3"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="3"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="4"  
@@ -227,14 +195,7 @@
                Grid.Row="4"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="4"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="4"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="5"  
@@ -260,14 +221,7 @@
                Grid.Row="5"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="5"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="5"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="6"  
@@ -293,14 +247,7 @@
                Grid.Row="6"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="6"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="6"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="7"  
@@ -326,14 +273,7 @@
                Grid.Row="7"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="7"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="7"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="8"  
@@ -359,14 +299,7 @@
                Grid.Row="8"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="8"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="8"  
-               Stroke="Black"
-               Fill="Transparent" />
+
 
                 <Rectangle Grid.Column="0"
                Grid.Row="9"  
@@ -392,87 +325,169 @@
                Grid.Row="9"  
                Stroke="Black"
                Fill="Transparent" />
-                <Rectangle Grid.Column="6"
-               Grid.Row="9"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <Rectangle Grid.Column="7"
-               Grid.Row="9"  
-               Stroke="Black"
-               Fill="Transparent" />
-                <ListBox x:Name="txtb1_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="194" Margin="5,4,0,0"/>
-                <ListBox x:Name="txtb1_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="4,5,0,0"/>
-                <ListBox x:Name="txtb1_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb1_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb1_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb1_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb1_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb2_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb2_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb1_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,0,0,0"/>
+                <ListBox x:Name="txtb1_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="4,5,0,0"/>
+                <ListBox x:Name="txtb1_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb1_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb1_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb3_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb3_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb2_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb2_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb2_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb2_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb2_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb4_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb4_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb3_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb3_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb3_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb3_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb3_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb5_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb5_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb4_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb4_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb4_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb4_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb4_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb6_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb6_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb5_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb5_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb5_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb5_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb5_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb7_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb7_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb6_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb6_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb6_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb6_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb6_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb8_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb8_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb7_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb7_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb7_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb7_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb7_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
 
-                <ListBox x:Name="txtb9_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_6" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
-                <ListBox x:Name="txtb9_7" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="82" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb8_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb8_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb8_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb8_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb8_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+
+                <ListBox x:Name="txtb9_1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb9_2" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb9_3" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb9_4" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+                <ListBox x:Name="txtb9_5" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,5,0,0"/>
+
+                <ListBox x:Name="txtb1_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,33,0,0"/>
+                <ListBox x:Name="txtb1_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="4,33,0,0"/>
+                <ListBox x:Name="txtb1_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,33,0,0"/>
+                <ListBox x:Name="txtb1_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,33,0,0"/>
+                <ListBox x:Name="txtb1_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,33,0,0"/>
+
+                <ListBox x:Name="txtb2_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb2_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+                <ListBox x:Name="txtb2_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb2_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb2_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+
+                <ListBox x:Name="txtb3_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb3_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb3_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb3_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb3_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,37,0,0"/>
+
+                <ListBox x:Name="txtb4_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb4_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb4_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb4_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb4_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+
+                <ListBox x:Name="txtb5_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb5_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb5_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb5_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb5_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+
+                <ListBox x:Name="txtb6_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb6_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb6_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb6_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb6_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+
+                <ListBox x:Name="txtb7_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb7_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb7_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb7_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb7_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+
+                <ListBox x:Name="txtb8_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="6,32,0,0"/>
+                <ListBox x:Name="txtb8_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+                <ListBox x:Name="txtb8_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb8_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb8_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+
+                <ListBox x:Name="txtb9_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb9_2_Copy" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+                <ListBox x:Name="txtb9_3_Copy" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb9_4_Copy" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,32,0,0"/>
+                <ListBox x:Name="txtb9_5_Copy" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="4,32,0,0"/>
+
+                <ListBox x:Name="txtb1_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb1_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="4,65,0,0"/>
+                <ListBox x:Name="txtb1_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb1_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb1_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+
+                <ListBox x:Name="txtb2_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb2_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="4,64,0,0"/>
+                <ListBox x:Name="txtb2_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb2_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb2_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="27" Width="194" Margin="4,64,0,0"/>
                 
-                <ListBox x:Name="txtb1_1_Copy" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="194" Margin="5,48,0,0"/>
+                <ListBox x:Name="txtb3_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb3_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="4,65,0,0"/>
+                <ListBox x:Name="txtb3_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb3_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb3_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                
+                <ListBox x:Name="txtb4_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb4_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="6,65,0,0"/>
+                <ListBox x:Name="txtb4_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb4_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb4_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                
+                <ListBox x:Name="txtb5_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb5_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="6,65,0,0"/>
+                <ListBox x:Name="txtb5_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb5_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb5_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                
+                <ListBox x:Name="txtb6_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb6_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb6_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb6_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb6_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="6"  VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                
+                <ListBox x:Name="txtb7_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb7_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="4,65,0,0"/>
+                <ListBox x:Name="txtb7_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb7_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Height="27" Width="194" Margin="10,65,0,0"/>
+                <ListBox x:Name="txtb7_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="7"  VerticalAlignment="Top" Height="27" Width="194" Margin="0,65,0,0"/>
+                
+                <ListBox x:Name="txtb8_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb8_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="6,65,0,0"/>
+                <ListBox x:Name="txtb8_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                <ListBox x:Name="txtb8_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb8_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="194" Margin="5,65,0,0"/>
+                
+                <ListBox x:Name="txtb9_1_Copy1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb9_2_Copy1" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="4,64,0,0"/>
+                <ListBox x:Name="txtb9_3_Copy1" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb9_4_Copy1" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="5,64,0,0"/>
+                <ListBox x:Name="txtb9_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="4,64,0,0"/>
+
 
 
 
