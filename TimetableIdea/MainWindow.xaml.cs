@@ -35,20 +35,44 @@ namespace TimetableIdea
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var query1 = from c in db.Lecturers
-                         where Name == "Colm Davey"
-                         select c;
+            //var query1 = from c in db.Lecturers
+            //             where c.LecturerID == 1
+            //             select c.Name;
 
-            //txtb1_1.ItemsSource = query1.ToList();
+            //var query2 = from c in db.Subjects
+            //             where c.SubjectID == 1
+            //             select c.SubjectName;
 
-            var results = query1.ToString();
+            //var query3 = from c in db.Rooms
+            //             where c.RoomID == 1
+            //             select c.RoomCode;
 
-            txtb1_1.Text = results;
-            //txtb1_1.Text = string.Format(string line1 = @"First Line
-            //                                            Second Line
-            //                                            Third Line
-            //                                            Forth Line";)
+            //string lecturerName = query1.ToString();
+            //string subjectName = query2.ToString();
+            //string roomCode = query3.ToString();
 
+            //txtb1_1.Text = string.Format(
+            //    "Total number of orders {0}\nValue of Orders {1:C}\nAverage Order Value {2:C}",
+            //    query1, query2, query3);
+
+            var query1 = from c in db.Subjects
+                         where c.SubjectID == 1
+                         select c.SubjectName;
+
+            txtb1_1.ItemsSource = query1.ToList();
+
+            var query2 = from c in db.Rooms
+                         where c.RoomID == 1
+                         select c.RoomCode;
+
+            txtb1_1_Copy.ItemsSource = query2.ToList();
+
+
+
+
+
+
+            img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
 
         }
         // creating modules obj
@@ -125,7 +149,6 @@ namespace TimetableIdea
         // sorting modules
         // AllModule.Sort();
 
-        // img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
 
         // use a data template???
         //txtb1_1.Text = "Jamie";

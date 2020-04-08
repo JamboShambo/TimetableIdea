@@ -86,6 +86,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PartialClass\Lecturer.cs" />
+    <Compile Include="PartialClass\Room.cs" />
+    <Compile Include="PartialClass\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
