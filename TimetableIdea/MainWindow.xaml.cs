@@ -21,7 +21,7 @@ namespace TimetableIdea
     public partial class MainWindow : Window
     {
         TimetableData db = new TimetableData();
-        //List<Module> AllModule = new List<Module>();
+        List<Task> AllTask = new List<Task>();
         //List<Module> MonModule = new List<Module>();
         //List<Module> TuesModule = new List<Module>();
         //List<Module> WedModule = new List<Module>();
@@ -37,14 +37,42 @@ namespace TimetableIdea
         {
             //Timetable info loaded
             DataToTimetable();
-            
+
+            //Creating Task objects
+            Task t1 = new Task("Rewrite Maths Notes", "Rewrite maths notes as the first ones are very messy and hard to read.", "Mathematics 3", new DateTime(2020, 04, 05));
+            Task t2 = new Task("Better Understand VPC", "Do more research into VPC and gain a better understanding of i, I dont fully understand it.", "Cloud Computing", new DateTime(2020, 04, 07));
+            Task t3 = new Task("Extension Database CA1", "Feeling under pressure with current amount of projects and feel I need more time.", "Database Management", new DateTime(2020, 04, 10));
+            Task t4 = new Task("Study for MCQ", "Study for the upcoming MCQ, it will be about Whitebox testing", "Software Quality Testing", new DateTime(2020, 04, 05));
+            Task t5 = new Task("Organise folders", "I have gathered up alot of handout sheets from class and they need to be organised.", "Cloud Computing", new DateTime(2020, 04, 9));
+            Task t6 = new Task("Group meeting", "The group project will need to be discussed and potential ideas thought about.", "Database Management", new DateTime(2020, 04, 11));
+
+            AllTask.Add(t1);
+            AllTask.Add(t2);
+            AllTask.Add(t3);
+            AllTask.Add(t4);
+            AllTask.Add(t5);
+            AllTask.Add(t6);
+
+            LBx_tasks.ItemsSource = AllTask.ToList();
 
             img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
+
+            Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
+            Label_dattime.Content = DateTime.Now.ToShortDateString();
+
 
         }
 
         private void DataToTimetable()
         {
+
+            // e.g to list
+            //var SubjectListQuery = from h in db.Subjects
+            //                       select h;
+
+            //txtb1_1.ItemsSource = SubjectListQuery.ToList();
+
+
             // Monday information loaded
             //cell 1
             var q1 = from c in db.Subjects
@@ -318,11 +346,11 @@ namespace TimetableIdea
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)
         {
-            string inputTaskName = Txtbx_taskName.Text;
-            string inputGoal = TxtBx_Goal.Text;
-            string InputArea = Txtbx_Module.Text;
+            //string inputTaskName = Txtbx_taskName.Text;
+            //string inputGoal = TxtBx_Goal.Text;
+            //string InputArea = Txtbx_Module.Text;
 
-            LBx_tasks.ItemsSource = inputTaskName.ToList();
+            //LBx_tasks.ItemsSource = inputTaskName.ToList();
         }
 
         private void LBx_tasks_SelectionChanged(object sender, SelectionChangedEventArgs e)

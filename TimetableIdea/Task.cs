@@ -9,18 +9,23 @@ namespace TimetableIdea
     public class Task
     {
         //props
-        public string Name { get; set; }
-        public string Goal { get; set; }
-        public string Subject { get; set; }
-        public DateTime TimeCreated { get; set; }
+        public string TaskName { get; set; }
+        public string TaskGoal { get; set; }
+        public string TaskSubject { get; set; }
+        public DateTime TaskTimeCreated { get; set; }
 
         //constructor
         public Task(string name, string goal, string subject, DateTime timeCreated)
         {
-            Name = name;
-            Goal = goal;
-            Subject = subject;
-            TimeCreated = timeCreated;
+            TaskName = name;
+            TaskGoal = goal;
+            TaskSubject = subject;
+            TaskTimeCreated = timeCreated;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}\t{1}\t{2}\t{3}",TaskName,TaskGoal,TaskSubject,TaskTimeCreated.ToShortDateString());
         }
 
     }

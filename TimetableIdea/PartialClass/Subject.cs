@@ -10,7 +10,7 @@ namespace TimetableIdea
     {
         public override string ToString()
         {
-            return this.SubjectName;
+            return string.Format("{0}",SubjectName);
         }
 
     }

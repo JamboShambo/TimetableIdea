@@ -14,9 +14,10 @@
         Title="Student Timetable" Height="1000" Width="1600" Loaded="Window_Loaded">
 
     <Window.Resources>
-        <DataTemplate x:Key="DataTemplateTxtBlkTimeTable">
+        <DataTemplate x:Key="DataTemplateTaskLstB">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=SubjectName}" FontSize="18" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding Path=TaskName}" FontSize="12" Height="15" Width="135" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBlock Text="{Binding Path=TaskSubject}" FontSize="12" Height="15" Width="135" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
@@ -489,42 +490,54 @@
                 <ListBox x:Name="txtb9_5_Copy1" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Top" Height="27" Width="194" Margin="4,64,0,0"/>
                 <Rectangle StrokeThickness="2" Fill="Transparent" HorizontalAlignment="Left" Height="189" Margin="-306,0,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" Width="301"/>
 
-
-
-
+                <Label Background="White" x:Name="Label_dattime_p1" Content="" FontSize="18" HorizontalAlignment="Left" Margin="-308,61,0,-10" Grid.Row="9" VerticalAlignment="Top" Height="40" Width="107"/>
 
             </Grid>
         </TabItem>
 
-        <TabItem Name="ToDoTab" Header="To Do" Width="100">
-            <Grid>
+        <TabItem Name="ToDoTab"  Header="To Do" Width="100">
+            <Grid Background="#FF478F4A" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="245*"/>
-                    <ColumnDefinition Width="541*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="LBx_tasks" HorizontalAlignment="Left" Height="240" Margin="23,58,0,0" VerticalAlignment="Top" Width="236" Grid.ColumnSpan="2" SelectionChanged="LBx_tasks_SelectionChanged" />
-                <Label Content="Tasks" HorizontalAlignment="Left" Margin="102,27,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="Txtbx_taskName" HorizontalAlignment="Left" Height="22" Margin="97,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" TextChanged="Txtbx_taskName_TextChanged" />
-                <Label Content="Task Name" HorizontalAlignment="Left" Margin="121,27,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <TextBox x:Name="TxtBx_Goal" HorizontalAlignment="Left" Height="22" Margin="97,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" TextChanged="TxtBx_Goal_TextChanged"/>
-                <Label Content="Goal" HorizontalAlignment="Left" Margin="121,105,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <TextBox x:Name="Txtbx_Module" HorizontalAlignment="Left" Height="24" Margin="97,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" TextChanged="Txtbx_Module_TextChanged"/>
-                <Label Content="Area" HorizontalAlignment="Left" Margin="121,173,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <Button x:Name="Btn_add" Content="Add" HorizontalAlignment="Left" Margin="113,243,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Btn_add_Click"/>
-                <Button Content="Remove" HorizontalAlignment="Left" Margin="113,283,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="398,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.75*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.75*"/>
+                </Grid.RowDefinitions>
+                <ListBox Background="#FF005963" ItemTemplate="{StaticResource DataTemplateTaskLstB}"  x:Name="LBx_tasks" HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="397" SelectionChanged="LBx_tasks_SelectionChanged"   Grid.Row="3" />
+                <Label Content="Name" HorizontalAlignment="Left" Margin="30,15,0,0" Grid.Row="2" FontSize="20" Width="77"/>
+                <Label Content="Subject" HorizontalAlignment="Left" Margin="195,15,0,0" Grid.Row="2" FontSize="20" Width="77"/>
+                <Label Content="Tasks" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="52" Width="397" FontSize="36" FontWeight="Bold"/>
+                <ListBox Background="#FF005963" Grid.Column="2" HorizontalAlignment="Left" Height="418" Grid.Row="3" VerticalAlignment="Top" Width="396"/>
+                <Rectangle Grid.Column="1" Fill="White" HorizontalAlignment="Left" Height="1000" Margin="385,0,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="12" Grid.RowSpan="7"/>
+                <Label Background="White" x:Name="Label_dattime" Content="" FontSize="18" HorizontalAlignment="Left" Margin="0,117,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" Width="107"/>
+
+
 
 
             </Grid>
+
+
         </TabItem>
 
         <TabItem Name="TrackerTab" Header="Tracker" Width="100">
-            <Grid>
+            <Grid Background="#FF005963">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="166*"/>
                     <ColumnDefinition Width="621*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="Lstbx_tracker" HorizontalAlignment="Left" Height="232" Margin="24,65,0,0" VerticalAlignment="Top" Width="253" Grid.ColumnSpan="2"/>
+                <ListBox Background="#FF478F4A" x:Name="Lstbx_tracker" HorizontalAlignment="Left" Height="232" Margin="24,65,0,0" VerticalAlignment="Top" Width="253" Grid.ColumnSpan="2"/>
                 <Label Content="CA Tracker" HorizontalAlignment="Left" Margin="136,34,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="Txtbx_CAName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="CA Name" Grid.Column="1" HorizontalAlignment="Left" Margin="234,34,0,0" VerticalAlignment="Top"/>
