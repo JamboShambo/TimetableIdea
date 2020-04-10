@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,14 @@ namespace TimetableIdea
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Task> tasks;
+
         TimetableData db = new TimetableData();
+
+        Random rng = new Random();
+
         List<Task> AllTask = new List<Task>();
-        //List<Module> MonModule = new List<Module>();
+        List<Notice> AllNotice = new List<Notice>();
         //List<Module> TuesModule = new List<Module>();
         //List<Module> WedModule = new List<Module>();
         //List<Module> ThursModule = new List<Module>();
@@ -38,24 +44,43 @@ namespace TimetableIdea
             //Timetable info loaded
             DataToTimetable();
 
+            //Creating notice objects
+            Notice n1 = new Notice("Monday Bank holiday", "College closed" ,new DateTime(2020, 04, 05));
+            Notice n2 = new Notice("Meetings, no class", "Cloud Computing", new DateTime(2020, 04, 07));
+            Notice n3 = new Notice("Guest Speaker", "Database Management",new DateTime(2020, 04, 10));
+
+            //adding Notice to list
+            AllNotice.Add(n1);
+            AllNotice.Add(n2);
+            AllNotice.Add(n3);
+
+            //Sending list to be displayed
+            LstBx_notice.ItemsSource = AllNotice.ToList();
+
             //Creating Task objects
             Task t1 = new Task("Rewrite Maths Notes", "Rewrite maths notes as the first ones are very messy and hard to read.", "Mathematics 3", new DateTime(2020, 04, 05));
-            Task t2 = new Task("Better Understand VPC", "Do more research into VPC and gain a better understanding of i, I dont fully understand it.", "Cloud Computing", new DateTime(2020, 04, 07));
+            Task t2 = new Task("Better Understand VPC", "Do more research into VPC and gain a better understanding of I, I dont fully understand it.", "Cloud Computing", new DateTime(2020, 04, 07));
             Task t3 = new Task("Extension Database CA1", "Feeling under pressure with current amount of projects and feel I need more time.", "Database Management", new DateTime(2020, 04, 10));
             Task t4 = new Task("Study for MCQ", "Study for the upcoming MCQ, it will be about Whitebox testing", "Software Quality Testing", new DateTime(2020, 04, 05));
-            Task t5 = new Task("Organise folders", "I have gathered up alot of handout sheets from class and they need to be organised.", "Cloud Computing", new DateTime(2020, 04, 9));
-            Task t6 = new Task("Group meeting", "The group project will need to be discussed and potential ideas thought about.", "Database Management", new DateTime(2020, 04, 11));
 
+            //adding Tasks to list
             AllTask.Add(t1);
             AllTask.Add(t2);
             AllTask.Add(t3);
             AllTask.Add(t4);
-            AllTask.Add(t5);
-            AllTask.Add(t6);
 
-            LBx_tasks.ItemsSource = AllTask.ToList();
+            //Sending list to be displayed
+            LstBx_Task.ItemsSource = AllTask.ToList();
 
             img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
+            img_SligoITp2.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
+            img_topimg1.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT4.jpg"));
+            img_topimg2.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT3.jpg"));
+            img_topimg3.Source = new BitmapImage(new Uri("https://hea.ie/assets/uploads/2017/04/Sligo-IT-1000x500.jpg"));
+
+
+
+
 
             Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
             Label_dattime.Content = DateTime.Now.ToShortDateString();
@@ -327,35 +352,81 @@ namespace TimetableIdea
             txtb2_5_Copy.ItemsSource = q2.ToList();
             txtb2_5_Copy1.ItemsSource = q28.ToList();
         }
-        
 
-        private void Txtbx_taskName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
-        private void TxtBx_Goal_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Txtbx_Module_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Btn_add_Click(object sender, RoutedEventArgs e)
-        {
-            //string inputTaskName = Txtbx_taskName.Text;
-            //string inputGoal = TxtBx_Goal.Text;
-            //string InputArea = Txtbx_Module.Text;
-
-            //LBx_tasks.ItemsSource = inputTaskName.ToList();
-        }
 
         private void LBx_tasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Task selectedTask = LstBx_Task.SelectedItem as Task;
 
+            if (selectedTask != null)
+            {
+                txtb_description.Text = selectedTask.TaskGoal;
+            }
+        }
+
+        private void LstBx_notice_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Notice selectedNotice = LstBx_notice.SelectedItem as Notice;
+
+            if (selectedNotice != null)
+            {
+                string NoticeTxt = $"Date posted: {selectedNotice.NoticeDate.ToShortDateString()}";
+                txtB_notice.Text = NoticeTxt;
+
+            }
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            Task selectedTask = LstBx_Task.SelectedItem as Task;
+
+            if (selectedTask != null)
+            {
+                AllTask.Remove(selectedTask);
+
+                //reset
+                LstBx_Task.ItemsSource = null;
+                LstBx_Task.ItemsSource = AllTask;
+
+            }
+        }
+
+        private Task GetRandomTask()
+        {
+
+            // get random task
+            string[] taskNameOptions = { "Study For Upcoming CA", "Check out book", "Buy Stationary" };
+            string[] taskGoalOptions = { "Complete before the end of the week", "Get it done asap", "Has to be done today"};
+            string[] taskSubjectOptions = { "Mathematics 3", "Database Management","Cloud Computing","Web Programming","Software Quality Testing"};
+            int randomNumber1 = rng.Next(0, 3); // 0,1 or 2
+            int randomNumber2 = rng.Next(0, 6); // 0,1,2,3,4,5
+            string taskNamePicked = taskNameOptions[randomNumber1];
+            string taskGoalPicked = taskGoalOptions[randomNumber1];
+            string taskSubjectPicked = taskSubjectOptions[randomNumber2];
+
+            //get random date -  last 30 days
+            int randomNumber3 = rng.Next(0, 31); // 0 to 30
+            DateTime randomDate = DateTime.Now.AddDays(-randomNumber3); // date in the last 30 days
+
+            // create an task object with random info
+            Task t1 = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
+
+            //return random object
+            return t1;
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //Create task object
+            Task t1 = GetRandomTask();
+
+            //add to list
+            AllTask.Add(t1);
+
+            //display list in list box
+            LstBx_Task.ItemsSource = null;
+            LstBx_Task.ItemsSource = AllTask.ToList();
         }
     }
 }
