@@ -105,11 +105,11 @@ namespace TimetableIdea
             Combobx_Subjects.Items.Add("Mathematics 3");
             Combobx_Subjects.Items.Add("Object Oriented Development");
 
-            img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
-            img_SligoITp2.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
-            img_topimg1.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT4.jpg"));
-            img_topimg2.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT3.jpg"));
-            img_topimg3.Source = new BitmapImage(new Uri("https://hea.ie/assets/uploads/2017/04/Sligo-IT-1000x500.jpg"));
+            img_SligoIT.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
+            img_SligoITp2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
+            img_topimg1.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT4.jpg"));
+            img_topimg2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT3.jpg"));
+            img_topimg3.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/SligoITStudents.jpg"));
 
             Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
             Label_dattime.Content = DateTime.Now.ToShortDateString();
