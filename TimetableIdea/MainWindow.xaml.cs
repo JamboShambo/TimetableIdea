@@ -21,18 +21,15 @@ namespace TimetableIdea
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Task> tasks;
-
         TimetableData db = new TimetableData();
 
         Random rng = new Random();
 
         List<Task> AllTask = new List<Task>();
         List<Notice> AllNotice = new List<Notice>();
-        //List<Module> TuesModule = new List<Module>();
-        //List<Module> WedModule = new List<Module>();
-        //List<Module> ThursModule = new List<Module>();
-        //List<Module> FriModule = new List<Module>();
+        List<CA> AllCA = new List<CA>();
+        List<CA> SelectedCAList = new List<CA>();
+
 
         public MainWindow()
         {
@@ -45,9 +42,9 @@ namespace TimetableIdea
             DataToTimetable();
 
             //Creating notice objects
-            Notice n1 = new Notice("Monday Bank holiday", "College closed" ,new DateTime(2020, 04, 05));
+            Notice n1 = new Notice("Monday Bank holiday", "College closed", new DateTime(2020, 04, 05));
             Notice n2 = new Notice("Meetings, no class", "Cloud Computing", new DateTime(2020, 04, 07));
-            Notice n3 = new Notice("Guest Speaker", "Database Management",new DateTime(2020, 04, 10));
+            Notice n3 = new Notice("Guest Speaker", "Database Management", new DateTime(2020, 04, 10));
 
             //adding Notice to list
             AllNotice.Add(n1);
@@ -72,15 +69,47 @@ namespace TimetableIdea
             //Sending list to be displayed
             LstBx_Task.ItemsSource = AllTask.ToList();
 
+            //Creating CA objects
+            CA ca1 = new CA("Angular Project", "Create a one or two page Angular Application that gets data from an API and uses it in the application", "Web Programming 1", new DateTime(2020, 04, 27, 23, 00, 00));
+            CA ca2 = new CA("Personal Project", "Create a WPF application about anything you wish. Use as many topics that we have covered as possible.", "Object Oriented Development", new DateTime(2020, 04, 24, 17, 00, 00));
+            CA ca3 = new CA("Final Assesment", "Look through AWS service list and choose an area that interests you and do something in that area.", "Intro To Cloud Computing", new DateTime(2020, 04, 22, 21, 00, 00));
+            CA ca4 = new CA("CA2", "Use your knowledge of Stored Procedures gained in class to anwser the exercise sheet.", "Intro To Database Management", new DateTime(2020, 04, 20, 17, 00, 00));
+            CA ca5 = new CA("Final Exam", "Create Angular Application that adheres to the sheet given out. Will be similar to previous labsheet.", "Web Programming 1", new DateTime(2020, 05, 18, 09, 00, 00));
+            CA ca6 = new CA("Final Exam", "There will be a labsheet that you have to complete, It will be similar to something we have done.", "Object Oriented Development", new DateTime(2020, 05, 13, 10, 00, 00));
+            CA ca7 = new CA("Final Exam", "All 6 questions must be attempted on the paper. The exam covers all the exercise sheets.", "Mathematics 3", new DateTime(2020, 05, 08, 10, 00, 00));
+            CA ca8 = new CA("Final Exam", "You will be required to create different types of indexes and also views with statistics", "Intro To Database Management", new DateTime(2020, 05, 16, 09, 00, 00));
+            CA ca9 = new CA("Final Exam", "There will be a large MCQ moodle quiz on the topics covered in the module.", "Software Quality Testing", new DateTime(2020, 05, 10, 11, 00, 00));
+
+
+            //adding CA to list
+            AllCA.Add(ca1);
+            AllCA.Add(ca2);
+            AllCA.Add(ca3);
+            AllCA.Add(ca4);
+            AllCA.Add(ca5);
+            AllCA.Add(ca6);
+            AllCA.Add(ca7);
+            AllCA.Add(ca8);
+            AllCA.Add(ca9);
+
+            //Sending list to be displayed
+            AllCA.Sort();
+            LstBx_Exam.ItemsSource = AllCA.ToList();
+
+            //Filling ComboBox for CA tracker
+            Combobx_Subjects.Items.Add("All");
+            Combobx_Subjects.Items.Add("Web Programming 1");
+            Combobx_Subjects.Items.Add("Intro To Cloud Computing");
+            Combobx_Subjects.Items.Add("Intro To Database Management");
+            Combobx_Subjects.Items.Add("Software Quality Testing");
+            Combobx_Subjects.Items.Add("Mathematics 3");
+            Combobx_Subjects.Items.Add("Object Oriented Development");
+
             img_SligoIT.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
             img_SligoITp2.Source = new BitmapImage(new Uri("https://www.oceanfm.ie/wp-content/uploads/2016/06/it-sligo-logo.jpg"));
             img_topimg1.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT4.jpg"));
             img_topimg2.Source = new BitmapImage(new Uri("https://www.sligo.ie/wp-content/uploads/Invest-slider-SligoIT3.jpg"));
             img_topimg3.Source = new BitmapImage(new Uri("https://hea.ie/assets/uploads/2017/04/Sligo-IT-1000x500.jpg"));
-
-
-
-
 
             Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
             Label_dattime.Content = DateTime.Now.ToShortDateString();
@@ -396,8 +425,8 @@ namespace TimetableIdea
 
             // get random task
             string[] taskNameOptions = { "Study For Upcoming CA", "Check out book", "Buy Stationary" };
-            string[] taskGoalOptions = { "Complete before the end of the week", "Get it done asap", "Has to be done today"};
-            string[] taskSubjectOptions = { "Mathematics 3", "Database Management","Cloud Computing","Web Programming","Software Quality Testing"};
+            string[] taskGoalOptions = { "Complete before the end of the week", "Get it done asap", "Has to be done today" };
+            string[] taskSubjectOptions = { "Mathematics 3", "Database Management", "Cloud Computing", "Web Programming", "Software Quality Testing" };
             int randomNumber1 = rng.Next(0, 3); // 0,1 or 2
             int randomNumber2 = rng.Next(0, 6); // 0,1,2,3,4,5
             string taskNamePicked = taskNameOptions[randomNumber1];
@@ -411,7 +440,7 @@ namespace TimetableIdea
             // create an task object with random info
             Task t1 = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
 
-            //return random object
+            //return random task
             return t1;
 
         }
@@ -428,5 +457,125 @@ namespace TimetableIdea
             LstBx_Task.ItemsSource = null;
             LstBx_Task.ItemsSource = AllTask.ToList();
         }
+
+        private void LstBx_Exam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CA selectedCA = LstBx_Exam.SelectedItem as CA;
+
+            if (selectedCA != null)
+            {
+                txtb_description_CA.Text = selectedCA.CADescription;
+
+                TimeSpan returnedCountdown = CountdownDays(selectedCA.CADeadline);
+                txtbx_countdown.Content = string.Format("Days Left: {0}", returnedCountdown.Days);
+            }
+        }
+
+        private void Combobx_Subjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            CA selectedCA = Combobx_Subjects.SelectedItem as CA;
+            string filterBy = Combobx_Subjects.SelectedItem as string;
+
+            FilterCA(filterBy);
+
+        }
+
+        private void FilterCA(string filterCA)
+        {
+            CA selectedCA = Combobx_Subjects.SelectedItem as CA;
+
+            SelectedCAList.Clear();
+
+            switch (filterCA)
+            {
+                case "All":
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = AllCA;
+
+                    break;
+
+                case "Web Programming 1":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Web Programming 1")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+                case "Intro To Cloud Computing":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Intro To Cloud Computing")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+                case "Intro To Database Management":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Intro To Database Management")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+                case "Software Quality Testing":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Software Quality Testing")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+                case "Mathematics 3":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Mathematics 3")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+                case "Object Oriented Development":
+                    foreach (CA ca in AllCA)
+                    {
+                        if (ca.CASubject == "Object Oriented Development")
+                            SelectedCAList.Add(ca);
+                    }
+
+                    LstBx_Exam.ItemsSource = null;
+                    LstBx_Exam.ItemsSource = SelectedCAList;
+                    break;
+
+            }
+        }
+
+
+        private TimeSpan CountdownDays(DateTime caDate)
+        {
+            DateTime start = DateTime.Today;
+            DateTime end = caDate;
+
+            TimeSpan difference = end - start; //create TimeSpan object
+
+            Console.WriteLine("Difference in days: " + difference.Days); //Extract days, write to Console.}
+
+            return difference;
+        }
     }
 }
+
