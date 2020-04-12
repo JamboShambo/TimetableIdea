@@ -507,7 +507,7 @@
                 <Rectangle StrokeThickness="2" Fill="Transparent" HorizontalAlignment="Left" Height="189" Margin="-306,0,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" Width="301"/>
 
 
-                <Label FontStyle="Italic" BorderBrush="Black" BorderThickness="2" Background="White" x:Name="Label_dattime_p1" Content="" FontSize="18" HorizontalAlignment="Left" Margin="-306,69,0,-10" Grid.Row="11" VerticalAlignment="Top" Height="32" Width="107"/>
+                <Label FontStyle="Italic" BorderBrush="Black" BorderThickness="2" Background="White" x:Name="Label_dattime_p1" Content="" FontSize="18" HorizontalAlignment="Left" Margin="-306,64,0,-5" Grid.Row="11" VerticalAlignment="Top" Height="32" Width="107"/>
                 <Label FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Content="Notice" HorizontalAlignment="Left" Margin="-306,21,0,0" Grid.Row="3" VerticalAlignment="Top" Width="306" Height="43" FontWeight="Bold"/>
                 <ListBox ItemTemplate="{StaticResource DataTemplateNoticeList}" Name="LstBx_notice" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="304" Margin="-306,64,0,0" Grid.Row="3" Grid.RowSpan="4" VerticalAlignment="Top" Width="301" SelectionChanged="LstBx_notice_SelectionChanged"/>
                 <TextBox x:Name="txtB_notice" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" Margin="-306,0,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="301" Grid.RowSpan="3"/>
@@ -548,7 +548,7 @@
                 <Rectangle Fill="Transparent" HorizontalAlignment="Left" Height="741" Margin="754,25,0,0" Grid.Row="1" Stroke="Black" StrokeThickness="3" VerticalAlignment="Top" Width="3"/>
                 <Rectangle Fill="Transparent" HorizontalAlignment="Left" Height="741" Margin="757,25,0,0" Grid.Row="1" Stroke="Black" StrokeThickness="3" VerticalAlignment="Top" Width="3"/>
                 <ListBox ItemTemplate="{StaticResource DataTemplateCATrackerLstBx}" BorderBrush="Black" BorderThickness="2" Background="White"  x:Name="LstBx_Exam" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="450" Margin="862,136,0,0" Grid.Row="1" SelectionChanged="LstBx_Exam_SelectionChanged" />
-                <Label Content="CA Tracker" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="52" Width="450" FontSize="36" FontWeight="Bold" Margin="862,41,0,673" RenderTransformOrigin="0.509,-0.173"/>
+                <Label Content="Tracker" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="52" Width="450" FontSize="36" FontWeight="Bold" Margin="862,41,0,673" RenderTransformOrigin="0.509,-0.173"/>
                 <ComboBox Background="#FF005963" BorderThickness="2" BorderBrush="Black" x:Name="Combobx_Subjects" HorizontalAlignment="Left" Margin="1357,136,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200" SelectionChanged="Combobx_Subjects_SelectionChanged"/>
                 <TextBox x:Name="txtb_description_CA" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="57" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Margin="862,624,0,0" Grid.Row="1"/>
                 <Label Content="Name" HorizontalAlignment="Left" Margin="885,98,0,635" FontSize="20" Width="77" Grid.Row="1" RenderTransformOrigin="0.416,0.879"/>

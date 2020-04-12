@@ -21,15 +21,20 @@ namespace TimetableIdea
     /// </summary>
     public partial class MainWindow : Window
     {
-        TimetableData db = new TimetableData();
+        /****** Jamie Donohoe     ******
+         ****** Student Timetable ******/
 
+        // allows me to use the database I created
+        TimetableData db = new TimetableData();
+        
+        //Random for use in a methood
         Random rng = new Random();
 
+        //My lists used in various methods
         List<Task> AllTask = new List<Task>();
         List<Notice> AllNotice = new List<Notice>();
         List<CA> AllCA = new List<CA>();
         List<CA> SelectedCAList = new List<CA>();
-
 
         public MainWindow()
         {
@@ -41,92 +46,28 @@ namespace TimetableIdea
             //Timetable info loaded
             DataToTimetable();
 
-            //Creating notice objects
-            Notice n1 = new Notice("Monday Bank holiday", "College closed", new DateTime(2020, 04, 05));
-            Notice n2 = new Notice("Meetings, no class", "Cloud Computing", new DateTime(2020, 04, 07));
-            Notice n3 = new Notice("Guest Speaker", "Database Management", new DateTime(2020, 04, 10));
+            //Creates and adds Notice objects to list 
+            NoticeMethod();
 
-            //adding Notice to list
-            AllNotice.Add(n1);
-            AllNotice.Add(n2);
-            AllNotice.Add(n3);
+            //Creates and adds Task objects to list
+            TaskMethod();
 
-            //Sending list to be displayed
-            LstBx_notice.ItemsSource = AllNotice.ToList();
+            //Creates and adds CA objects to list
+            CATrackerMethod();
 
-            //Creating Task objects
-            Task t1 = new Task("Rewrite Maths Notes", "Rewrite maths notes as the first ones are very messy and hard to read.", "Mathematics 3", new DateTime(2020, 04, 05));
-            Task t2 = new Task("Better Understand VPC", "Do more research into VPC and gain a better understanding of I, I dont fully understand it.", "Cloud Computing", new DateTime(2020, 04, 07));
-            Task t3 = new Task("Extension Database CA1", "Feeling under pressure with current amount of projects and feel I need more time.", "Database Management", new DateTime(2020, 04, 10));
-            Task t4 = new Task("Study for MCQ", "Study for the upcoming MCQ, it will be about Whitebox testing", "Software Quality Testing", new DateTime(2020, 04, 05));
+            //Adds Subjects to the ComboBox
+            ComboBoxData();
 
-            //adding Tasks to list
-            AllTask.Add(t1);
-            AllTask.Add(t2);
-            AllTask.Add(t3);
-            AllTask.Add(t4);
+            //Loads Images from an S3 bucket to the application
+            S3BucketImages();
 
-            //Sending list to be displayed
-            LstBx_Task.ItemsSource = AllTask.ToList();
-
-            //Creating CA objects
-            CA ca1 = new CA("Angular Project", "Create a one or two page Angular Application that gets data from an API and uses it in the application", "Web Programming 1", new DateTime(2020, 04, 27, 23, 00, 00));
-            CA ca2 = new CA("Personal Project", "Create a WPF application about anything you wish. Use as many topics that we have covered as possible.", "Object Oriented Development", new DateTime(2020, 04, 24, 17, 00, 00));
-            CA ca3 = new CA("Final Assesment", "Look through AWS service list and choose an area that interests you and do something in that area.", "Intro To Cloud Computing", new DateTime(2020, 04, 22, 21, 00, 00));
-            CA ca4 = new CA("CA2", "Use your knowledge of Stored Procedures gained in class to anwser the exercise sheet.", "Intro To Database Management", new DateTime(2020, 04, 20, 17, 00, 00));
-            CA ca5 = new CA("Final Exam", "Create Angular Application that adheres to the sheet given out. Will be similar to previous labsheet.", "Web Programming 1", new DateTime(2020, 05, 18, 09, 00, 00));
-            CA ca6 = new CA("Final Exam", "There will be a labsheet that you have to complete, It will be similar to something we have done.", "Object Oriented Development", new DateTime(2020, 05, 13, 10, 00, 00));
-            CA ca7 = new CA("Final Exam", "All 6 questions must be attempted on the paper. The exam covers all the exercise sheets.", "Mathematics 3", new DateTime(2020, 05, 08, 10, 00, 00));
-            CA ca8 = new CA("Final Exam", "You will be required to create different types of indexes and also views with statistics", "Intro To Database Management", new DateTime(2020, 05, 16, 09, 00, 00));
-            CA ca9 = new CA("Final Exam", "There will be a large MCQ moodle quiz on the topics covered in the module.", "Software Quality Testing", new DateTime(2020, 05, 10, 11, 00, 00));
-
-
-            //adding CA to list
-            AllCA.Add(ca1);
-            AllCA.Add(ca2);
-            AllCA.Add(ca3);
-            AllCA.Add(ca4);
-            AllCA.Add(ca5);
-            AllCA.Add(ca6);
-            AllCA.Add(ca7);
-            AllCA.Add(ca8);
-            AllCA.Add(ca9);
-
-            //Sending list to be displayed
-            AllCA.Sort();
-            LstBx_Exam.ItemsSource = AllCA.ToList();
-
-            //Filling ComboBox for CA tracker
-            Combobx_Subjects.Items.Add("All");
-            Combobx_Subjects.Items.Add("Web Programming 1");
-            Combobx_Subjects.Items.Add("Intro To Cloud Computing");
-            Combobx_Subjects.Items.Add("Intro To Database Management");
-            Combobx_Subjects.Items.Add("Software Quality Testing");
-            Combobx_Subjects.Items.Add("Mathematics 3");
-            Combobx_Subjects.Items.Add("Object Oriented Development");
-
-            img_SligoIT.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
-            img_SligoITp2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
-            img_topimg1.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT4.jpg"));
-            img_topimg2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT3.jpg"));
-            img_topimg3.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/SligoITStudents.jpg"));
-
-            Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
-            Label_dattime.Content = DateTime.Now.ToShortDateString();
-
-
+            //Assigns todays date to a label
+            DateBox();
         }
 
+        //Timetable Methods
         private void DataToTimetable()
         {
-
-            // e.g to list
-            //var SubjectListQuery = from h in db.Subjects
-            //                       select h;
-
-            //txtb1_1.ItemsSource = SubjectListQuery.ToList();
-
-
             // Monday information loaded
             //cell 1
             var q1 = from c in db.Subjects
@@ -382,90 +323,167 @@ namespace TimetableIdea
             txtb2_5_Copy1.ItemsSource = q28.ToList();
         }
 
-
-        private void LBx_tasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //Notice methods
+        private void NoticeMethod()
         {
-            Task selectedTask = LstBx_Task.SelectedItem as Task;
+            //Creating notice objects
+            Notice n1 = new Notice("Monday Bank holiday", "College closed", new DateTime(2020, 04, 05));
+            Notice n2 = new Notice("Meetings, no class", "Cloud Computing", new DateTime(2020, 04, 07));
+            Notice n3 = new Notice("Guest Speaker", "Database Management", new DateTime(2020, 04, 10));
 
-            if (selectedTask != null)
-            {
-                txtb_description.Text = selectedTask.TaskGoal;
-            }
+            //adding Notice to list
+            AllNotice.Add(n1);
+            AllNotice.Add(n2);
+            AllNotice.Add(n3);
+
+            //Sending list to be displayed
+            LstBx_notice.ItemsSource = AllNotice.ToList();
         }
 
         private void LstBx_notice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // user selected item
             Notice selectedNotice = LstBx_notice.SelectedItem as Notice;
 
             if (selectedNotice != null)
             {
+                //sets textbox based on the selected item
                 string NoticeTxt = $"Date posted: {selectedNotice.NoticeDate.ToShortDateString()}";
                 txtB_notice.Text = NoticeTxt;
 
             }
         }
 
-        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        //Tasks methods
+        private void TaskMethod()
         {
+            //Creating Task objects
+            Task t1 = new Task("Rewrite Maths Notes", "Rewrite maths notes as the first ones are very messy and hard to read.", "Mathematics 3", new DateTime(2020, 04, 05));
+            Task t2 = new Task("Better Understand VPC", "Do more research into VPC and gain a better understanding of I, I dont fully understand it.", "Cloud Computing", new DateTime(2020, 04, 07));
+            Task t3 = new Task("Extension Database CA1", "Feeling under pressure with current amount of projects and feel I need more time.", "Database Management", new DateTime(2020, 04, 10));
+            Task t4 = new Task("Study for MCQ", "Study for the upcoming MCQ, it will be about Whitebox testing", "Software Quality Testing", new DateTime(2020, 04, 05));
+
+            //adding Tasks to list
+            AllTask.Add(t1);
+            AllTask.Add(t2);
+            AllTask.Add(t3);
+            AllTask.Add(t4);
+
+            //Sending list to be displayed
+            LstBx_Task.ItemsSource = AllTask.ToList();
+        }
+
+        private void LBx_tasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // user selected item
             Task selectedTask = LstBx_Task.SelectedItem as Task;
 
             if (selectedTask != null)
             {
-                AllTask.Remove(selectedTask);
-
-                //reset
-                LstBx_Task.ItemsSource = null;
-                LstBx_Task.ItemsSource = AllTask;
-
+                //sets textbox based on the selected item
+                txtb_description.Text = selectedTask.TaskGoal;
             }
         }
 
-        private Task GetRandomTask()
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            // user selected item
+            Task selectedTask = LstBx_Task.SelectedItem as Task;
 
-            // get random task
-            string[] taskNameOptions = { "Study For Upcoming CA", "Check out book", "Buy Stationary" };
-            string[] taskGoalOptions = { "Complete before the end of the week", "Get it done asap", "Has to be done today" };
-            string[] taskSubjectOptions = { "Mathematics 3", "Database Management", "Cloud Computing", "Web Programming", "Software Quality Testing" };
-            int randomNumber1 = rng.Next(0, 3); // 0,1 or 2
-            int randomNumber2 = rng.Next(0, 6); // 0,1,2,3,4,5
-            string taskNamePicked = taskNameOptions[randomNumber1];
-            string taskGoalPicked = taskGoalOptions[randomNumber1];
-            string taskSubjectPicked = taskSubjectOptions[randomNumber2];
+            if (selectedTask != null)
+            {
+                //removes the selected task from the list
+                AllTask.Remove(selectedTask);
 
-            //get random date -  last 30 days
-            int randomNumber3 = rng.Next(0, 31); // 0 to 30
-            DateTime randomDate = DateTime.Now.AddDays(-randomNumber3); // date in the last 30 days
-
-            // create an task object with random info
-            Task t1 = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
-
-            //return random task
-            return t1;
-
+                //reset the list
+                LstBx_Task.ItemsSource = null;
+                LstBx_Task.ItemsSource = AllTask;
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //Create task object
+            //Create task object using random method
             Task t1 = GetRandomTask();
 
             //add to list
             AllTask.Add(t1);
 
-            //display list in list box
+            //reset and display list in list box
             LstBx_Task.ItemsSource = null;
             LstBx_Task.ItemsSource = AllTask.ToList();
         }
 
+        private Task GetRandomTask()
+        {
+            // get random task
+            // creating arrays that will be used by random
+            string[] taskNameOptions = { "Study For Upcoming CA", "Check out book", "Buy Stationary" };
+            string[] taskGoalOptions = { "Complete before the end of the week", "Get it done asap", "Has to be done today" };
+            string[] taskSubjectOptions = { "Mathematics 3", "Database Management", "Cloud Computing", "Web Programming", "Software Quality Testing" };
+
+            //setting random number generators
+            int randomNumber1 = rng.Next(0, 3); // 0,1 or 2
+            int randomNumber2 = rng.Next(0, 6); // 0,1,2,3,4,5
+
+            //When strings are used a random value will be given to them
+            string taskNamePicked = taskNameOptions[randomNumber1];
+            string taskGoalPicked = taskGoalOptions[randomNumber1];
+            string taskSubjectPicked = taskSubjectOptions[randomNumber2];
+
+            //get random date in the last 30 days
+            int randomNumber3 = rng.Next(0, 31); // 0 to 30
+            DateTime randomDate = DateTime.Now.AddDays(-randomNumber3); // date in the last 30 days
+
+            //create an task object with random info
+            Task t1 = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
+
+            //return random task
+            return t1;
+        }
+
+        //Tracker methods
+        private void CATrackerMethod()
+        {
+            //Creating CA objects
+            CA ca1 = new CA("Angular Project", "Create a one or two page Angular Application that gets data from an API and uses it in the application", "Web Programming 1", new DateTime(2020, 04, 27, 23, 00, 00));
+            CA ca2 = new CA("Personal Project", "Create a WPF application about anything you wish. Use as many topics that we have covered as possible.", "Object Oriented Development", new DateTime(2020, 04, 24, 17, 00, 00));
+            CA ca3 = new CA("Final Assesment", "Look through AWS service list and choose an area that interests you and do something in that area.", "Intro To Cloud Computing", new DateTime(2020, 04, 22, 21, 00, 00));
+            CA ca4 = new CA("CA2", "Use your knowledge of Stored Procedures gained in class to anwser the exercise sheet.", "Intro To Database Management", new DateTime(2020, 04, 20, 17, 00, 00));
+            CA ca5 = new CA("Final Exam", "Create Angular Application that adheres to the sheet given out. Will be similar to previous labsheet.", "Web Programming 1", new DateTime(2020, 05, 18, 09, 00, 00));
+            CA ca6 = new CA("Final Exam", "There will be a labsheet that you have to complete, It will be similar to something we have done.", "Object Oriented Development", new DateTime(2020, 05, 13, 10, 00, 00));
+            CA ca7 = new CA("Final Exam", "All 6 questions must be attempted on the paper. The exam covers all the exercise sheets.", "Mathematics 3", new DateTime(2020, 05, 08, 10, 00, 00));
+            CA ca8 = new CA("Final Exam", "You will be required to create different types of indexes and also views with statistics", "Intro To Database Management", new DateTime(2020, 05, 16, 09, 00, 00));
+            CA ca9 = new CA("Final Exam", "There will be a large MCQ moodle quiz on the topics covered in the module.", "Software Quality Testing", new DateTime(2020, 05, 10, 11, 00, 00));
+
+            //adding CA to list
+            AllCA.Add(ca1);
+            AllCA.Add(ca2);
+            AllCA.Add(ca3);
+            AllCA.Add(ca4);
+            AllCA.Add(ca5);
+            AllCA.Add(ca6);
+            AllCA.Add(ca7);
+            AllCA.Add(ca8);
+            AllCA.Add(ca9);
+
+            //Sending list to be displayed
+            //Sorts by date
+            AllCA.Sort();
+            LstBx_Exam.ItemsSource = AllCA.ToList();
+        }
+
         private void LstBx_Exam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //user selected CA
             CA selectedCA = LstBx_Exam.SelectedItem as CA;
 
             if (selectedCA != null)
             {
+                //sets txtbox depending on selected CA
                 txtb_description_CA.Text = selectedCA.CADescription;
 
+                //sets a textbox with the remainng days before a selected CA is due 
                 TimeSpan returnedCountdown = CountdownDays(selectedCA.CADeadline);
                 txtbx_countdown.Content = string.Format("Days Left: {0}", returnedCountdown.Days);
             }
@@ -473,26 +491,29 @@ namespace TimetableIdea
 
         private void Combobx_Subjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //user selected CA
             CA selectedCA = Combobx_Subjects.SelectedItem as CA;
+
+            //calls a method that will filter the CA depending on ComboBox selection
             string filterBy = Combobx_Subjects.SelectedItem as string;
-
             FilterCA(filterBy);
-
         }
 
         private void FilterCA(string filterCA)
         {
+            //user selected CA
             CA selectedCA = Combobx_Subjects.SelectedItem as CA;
 
+            //clears the list before changing the output
             SelectedCAList.Clear();
 
+            //This switch statement allows the user to choose a combobox option and then
+            //it will return the the correct outputs for the selected option
             switch (filterCA)
             {
                 case "All":
                     LstBx_Exam.ItemsSource = null;
                     LstBx_Exam.ItemsSource = AllCA;
-
                     break;
 
                 case "Web Programming 1":
@@ -560,22 +581,46 @@ namespace TimetableIdea
                     LstBx_Exam.ItemsSource = null;
                     LstBx_Exam.ItemsSource = SelectedCAList;
                     break;
-
             }
         }
 
-
         private TimeSpan CountdownDays(DateTime caDate)
         {
+            //This method returns the remaining days betwenn today and the CA deadline 
             DateTime start = DateTime.Today;
             DateTime end = caDate;
 
             TimeSpan difference = end - start; //create TimeSpan object
 
-            Console.WriteLine("Difference in days: " + difference.Days); //Extract days, write to Console.}
-
             return difference;
         }
+        private void ComboBoxData()
+        {
+            //Filling ComboBox for CA tracker
+            Combobx_Subjects.Items.Add("All");
+            Combobx_Subjects.Items.Add("Web Programming 1");
+            Combobx_Subjects.Items.Add("Intro To Cloud Computing");
+            Combobx_Subjects.Items.Add("Intro To Database Management");
+            Combobx_Subjects.Items.Add("Software Quality Testing");
+            Combobx_Subjects.Items.Add("Mathematics 3");
+            Combobx_Subjects.Items.Add("Object Oriented Development");
+        }
+
+        //Images and date box
+        private void S3BucketImages()
+        {
+            img_SligoIT.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
+            img_SligoITp2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/it-sligo-logo.jpg"));
+            img_topimg1.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT4.jpg"));
+            img_topimg2.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/Invest-slider-SligoIT3.jpg"));
+            img_topimg3.Source = new BitmapImage(new Uri("https://oods00189802.s3-eu-west-1.amazonaws.com/OODTimeTableIMG/SligoITStudents.jpg"));
+        }
+        private void DateBox()
+        {
+            Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
+            Label_dattime.Content = DateTime.Now.ToShortDateString();
+        }
+
     }
 }
 
