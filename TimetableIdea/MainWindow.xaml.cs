@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace TimetableIdea
 {
@@ -28,7 +30,7 @@ namespace TimetableIdea
         TimetableData db = new TimetableData();
         
         //Random for use in a methood
-        Random rng = new Random();
+        static Random rng = new Random();
 
         //My lists used in various methods
         List<Task> AllTask = new List<Task>();
@@ -41,7 +43,7 @@ namespace TimetableIdea
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Timetable info loaded
             DataToTimetable();
@@ -66,7 +68,7 @@ namespace TimetableIdea
         }
 
         //Timetable Methods
-        private void DataToTimetable()
+        public void DataToTimetable()
         {
             // Monday information loaded
             //cell 1
@@ -350,11 +352,11 @@ namespace TimetableIdea
                 //sets textbox based on the selected item
                 string NoticeTxt = $"Date posted: {selectedNotice.NoticeDate.ToShortDateString()}";
                 txtB_notice.Text = NoticeTxt;
-
             }
         }
 
         //Tasks methods
+        #region tasks methods
         private void TaskMethod()
         {
             //Creating Task objects
@@ -406,15 +408,23 @@ namespace TimetableIdea
             //Create task object using random method
             Task t1 = GetRandomTask();
 
+            string data = JsonConvert.SerializeObject(t1, Formatting.Indented);
+
+            using (StreamWriter sw = new StreamWriter("c:/RandomData.json"))
+            {
+                sw.Write(data);
+                sw.Close();
+            }
+
             //add to list
-            AllTask.Add(t1);
+            AllTask.Add(t1);         
 
             //reset and display list in list box
             LstBx_Task.ItemsSource = null;
             LstBx_Task.ItemsSource = AllTask.ToList();
         }
 
-        private Task GetRandomTask()
+        public Task GetRandomTask()
         {
             // get random task
             // creating arrays that will be used by random
@@ -441,6 +451,7 @@ namespace TimetableIdea
             //return random task
             return t1;
         }
+        #endregion
 
         //Tracker methods
         private void CATrackerMethod()
@@ -478,15 +489,24 @@ namespace TimetableIdea
             //user selected CA
             CA selectedCA = LstBx_Exam.SelectedItem as CA;
 
-            if (selectedCA != null)
+            try
             {
-                //sets txtbox depending on selected CA
-                txtb_description_CA.Text = selectedCA.CADescription;
+                if (selectedCA != null)
+                {
+                    //sets txtbox depending on selected CA
+                    txtb_description_CA.Text = selectedCA.CADescription;
 
-                //sets a textbox with the remainng days before a selected CA is due 
-                TimeSpan returnedCountdown = CountdownDays(selectedCA.CADeadline);
-                txtbx_countdown.Content = string.Format("Days Left: {0}", returnedCountdown.Days);
+                    //sets a textbox with the remainng days before a selected CA is due 
+                    TimeSpan returnedCountdown = CountdownDays(selectedCA.CADeadline);
+                    txtbx_countdown.Content = string.Format("Days Left: {0}", returnedCountdown.Days);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("The Application has encountered an error and will now close", "Error");
+                throw;
+            }
+            
         }
 
         private void Combobx_Subjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -509,90 +529,109 @@ namespace TimetableIdea
 
             //This switch statement allows the user to choose a combobox option and then
             //it will return the the correct outputs for the selected option
-            switch (filterCA)
+
+            try
             {
-                case "All":
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = AllCA;
-                    break;
+                switch (filterCA)
+                {
+                    case "All":
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = AllCA;
+                        break;
 
-                case "Web Programming 1":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Web Programming 1")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Web Programming 1":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Web Programming 1")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
 
-                case "Intro To Cloud Computing":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Intro To Cloud Computing")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Intro To Cloud Computing":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Intro To Cloud Computing")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
 
-                case "Intro To Database Management":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Intro To Database Management")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Intro To Database Management":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Intro To Database Management")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
 
-                case "Software Quality Testing":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Software Quality Testing")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Software Quality Testing":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Software Quality Testing")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
 
-                case "Mathematics 3":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Mathematics 3")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Mathematics 3":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Mathematics 3")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
 
-                case "Object Oriented Development":
-                    foreach (CA ca in AllCA)
-                    {
-                        if (ca.CASubject == "Object Oriented Development")
-                            SelectedCAList.Add(ca);
-                    }
+                    case "Object Oriented Development":
+                        foreach (CA ca in AllCA)
+                        {
+                            if (ca.CASubject == "Object Oriented Development")
+                                SelectedCAList.Add(ca);
+                        }
 
-                    LstBx_Exam.ItemsSource = null;
-                    LstBx_Exam.ItemsSource = SelectedCAList;
-                    break;
+                        LstBx_Exam.ItemsSource = null;
+                        LstBx_Exam.ItemsSource = SelectedCAList;
+                        break;
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("The Application has encountered an error and will now close", "Error");
+                throw;
+            }
+            
         }
 
-        private TimeSpan CountdownDays(DateTime caDate)
+        public static TimeSpan CountdownDays(DateTime caDate)
         {
-            //This method returns the remaining days betwenn today and the CA deadline 
-            DateTime start = DateTime.Today;
-            DateTime end = caDate;
+            //This method returns the remaining days betwenn today and the CA deadline
+            try
+            {
+                DateTime start = DateTime.Today;
+                DateTime end = caDate;
 
-            TimeSpan difference = end - start; //create TimeSpan object
+                TimeSpan difference = end - start; //create TimeSpan object
 
-            return difference;
+                return difference;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The Application has encountered an error and will now close", "Error");
+                throw;
+            }
+            
         }
         private void ComboBoxData()
         {
@@ -619,6 +658,7 @@ namespace TimetableIdea
         {
             Label_dattime_p1.Content = DateTime.Now.ToShortDateString();
             Label_dattime.Content = DateTime.Now.ToShortDateString();
+
         }
 
     }
