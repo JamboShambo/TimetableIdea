@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableIdea", "TimetableI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagement", "DataManagement\DataManagement.csproj", "{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject2", "UnitTestProject2\UnitTestProject2.csproj", "{4755F6E3-1BA4-4380-B369-31F822224F5A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DFC52EA-6835-474F-B2C8-BEA1DB544AF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4755F6E3-1BA4-4380-B369-31F822224F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4755F6E3-1BA4-4380-B369-31F822224F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4755F6E3-1BA4-4380-B369-31F822224F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4755F6E3-1BA4-4380-B369-31F822224F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

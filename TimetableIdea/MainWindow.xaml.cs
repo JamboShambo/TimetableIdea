@@ -331,7 +331,7 @@ namespace TimetableIdea
             //Creating notice objects
             Notice n1 = new Notice("Monday Bank holiday", "College closed", new DateTime(2020, 04, 05));
             Notice n2 = new Notice("Meetings, no class", "Cloud Computing", new DateTime(2020, 04, 07));
-            Notice n3 = new Notice("Guest Speaker", "Database Management", new DateTime(2020, 04, 10));
+            Notice n3 = new Notice("Guest Speaker", "Database", new DateTime(2020, 04, 10));
 
             //adding Notice to list
             AllNotice.Add(n1);
@@ -356,7 +356,6 @@ namespace TimetableIdea
         }
 
         //Tasks methods
-        #region tasks methods
         private void TaskMethod()
         {
             //Creating Task objects
@@ -392,7 +391,7 @@ namespace TimetableIdea
             // user selected item
             Task selectedTask = LstBx_Task.SelectedItem as Task;
 
-            if (selectedTask != null)
+            if (selectedTask != null || selectedTask == null)
             {
                 //removes the selected task from the list
                 AllTask.Remove(selectedTask);
@@ -446,26 +445,25 @@ namespace TimetableIdea
             DateTime randomDate = DateTime.Now.AddDays(-randomNumber3); // date in the last 30 days
 
             //create an task object with random info
-            Task t1 = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
+            Task t = new Task(taskNamePicked, taskGoalPicked, taskSubjectPicked, randomDate);
 
             //return random task
-            return t1;
+            return t;
         }
-        #endregion
 
         //Tracker methods
         private void CATrackerMethod()
         {
             //Creating CA objects
-            CA ca1 = new CA("Angular Project", "Create a one or two page Angular Application that gets data from an API and uses it in the application", "Web Programming 1", new DateTime(2020, 04, 27, 23, 00, 00));
-            CA ca2 = new CA("Personal Project", "Create a WPF application about anything you wish. Use as many topics that we have covered as possible.", "Object Oriented Development", new DateTime(2020, 04, 24, 17, 00, 00));
-            CA ca3 = new CA("Final Assesment", "Look through AWS service list and choose an area that interests you and do something in that area.", "Intro To Cloud Computing", new DateTime(2020, 04, 22, 21, 00, 00));
-            CA ca4 = new CA("CA2", "Use your knowledge of Stored Procedures gained in class to anwser the exercise sheet.", "Intro To Database Management", new DateTime(2020, 04, 20, 17, 00, 00));
-            CA ca5 = new CA("Final Exam", "Create Angular Application that adheres to the sheet given out. Will be similar to previous labsheet.", "Web Programming 1", new DateTime(2020, 05, 18, 09, 00, 00));
-            CA ca6 = new CA("Final Exam", "There will be a labsheet that you have to complete, It will be similar to something we have done.", "Object Oriented Development", new DateTime(2020, 05, 13, 10, 00, 00));
-            CA ca7 = new CA("Final Exam", "All 6 questions must be attempted on the paper. The exam covers all the exercise sheets.", "Mathematics 3", new DateTime(2020, 05, 08, 10, 00, 00));
-            CA ca8 = new CA("Final Exam", "You will be required to create different types of indexes and also views with statistics", "Intro To Database Management", new DateTime(2020, 05, 16, 09, 00, 00));
-            CA ca9 = new CA("Final Exam", "There will be a large MCQ moodle quiz on the topics covered in the module.", "Software Quality Testing", new DateTime(2020, 05, 10, 11, 00, 00));
+            CA ca1 = new CA("Angular Project", "Create a one or two page Angular Application that gets data from an API and uses it in the application", "Web Programming 1", new DateTime(2020, 07, 27, 23, 00, 00));
+            CA ca2 = new CA("Personal Project", "Create a WPF application about anything you wish. Use as many topics that we have covered as possible.", "Object Oriented Development", new DateTime(2020, 07, 24, 17, 00, 00));
+            CA ca3 = new CA("Final Assesment", "Look through AWS service list and choose an area that interests you and do something in that area.", "Intro To Cloud Computing", new DateTime(2020, 07, 22, 21, 00, 00));
+            CA ca4 = new CA("CA2", "Use your knowledge of Stored Procedures gained in class to anwser the exercise sheet.", "Intro To Database Management", new DateTime(2020, 07, 20, 17, 00, 00));
+            CA ca5 = new CA("Final Exam", "Create Angular Application that adheres to the sheet given out. Will be similar to previous labsheet.", "Web Programming 1", new DateTime(2020, 07, 18, 09, 00, 00));
+            CA ca6 = new CA("Final Exam", "There will be a labsheet that you have to complete, It will be similar to something we have done.", "Object Oriented Development", new DateTime(2020, 07, 13, 10, 00, 00));
+            CA ca7 = new CA("Final Exam", "All 6 questions must be attempted on the paper. The exam covers all the exercise sheets.", "Mathematics 3", new DateTime(2020, 07, 08, 10, 00, 00));
+            CA ca8 = new CA("Final Exam", "You will be required to create different types of indexes and also views with statistics", "Intro To Database Management", new DateTime(2020, 07, 16, 09, 00, 00));
+            CA ca9 = new CA("Final Exam", "There will be a large MCQ moodle quiz on the topics covered in the module.", "Software Quality Testing", new DateTime(2020, 07, 10, 11, 00, 00));
 
             //adding CA to list
             AllCA.Add(ca1);

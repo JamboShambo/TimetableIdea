@@ -23,6 +23,7 @@ namespace TimetableIdea
             NoticeDate = noticeDate;
         }
 
+        //method
         public override string ToString()
         {
             return string.Format("{0}\t{1}\t{2}", NoticeReason,NoticeSubject, NoticeDate.ToShortDateString());
