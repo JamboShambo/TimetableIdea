@@ -407,6 +407,7 @@ namespace TimetableIdea
             //Create task object using random method
             Task t1 = GetRandomTask();
 
+            //writing to a json file
             string data = JsonConvert.SerializeObject(t1, Formatting.Indented);
 
             using (StreamWriter sw = new StreamWriter("c:/RandomData.json"))
